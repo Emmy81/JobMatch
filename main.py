@@ -1,5 +1,10 @@
-my_skills = ["Python", "Git", "HTML"]
+user_input = input("Enter your skills, separated by commas or spaces: ")
 
+my_skills = user_input.lower().replace(",", " ").split()
+if not my_skills:
+    print("Please enter at least one skill.")
+    exit()
+    
 jobs = [
     {
         "title": "Python Developer",
@@ -23,7 +28,7 @@ def calculate_match(my_skills, required_skills):
     matched_skills = []
 
     for skill in required_skills:
-        if skill in my_skills:
+        if skill.lower() in my_skills:
             matched_skills.append(skill)
 
     if len(required_skills) == 0:
