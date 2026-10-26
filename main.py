@@ -1,23 +1,59 @@
 my_skills = ["Python", "Git", "HTML"]
-required_skills = ["Python", "Git", "SQL", "Django"]
 
-# Store the skills that match
-matched_skills = []
+jobs = [
+    {
+        "title": "Python Developer",
+        "company": "Tech A",
+        "required_skills": ["Python", "Git", "SQL"]
+    },
+    {
+        "title": "Frontend Developer",
+        "company": "Tech B",
+        "required_skills": ["Python", "HTML", "CSS"]
+    },
+    {
+        "title": "Backend Developer",
+        "company": "Tech C",
+        "required_skills": ["Python", "Django", "SQL", "Git"]
+    }
+]
 
-# Check each skill required by the job
-for skill in required_skills:
-    if skill in my_skills:
-        matched_skills.append(skill)
 
-# Count the matched skills and required skills
-matched_count = len(matched_skills)
-required_count = len(required_skills)
+def calculate_match(my_skills, required_skills):
+    matched_skills = []
 
-# Calculate the job match percentage
-match_percentage = (matched_count / required_count) * 100
+    for skill in required_skills:
+        if skill in my_skills:
+            matched_skills.append(skill)
+
+    if len(required_skills) == 0:
+        return matched_skills, 0
+
+    percentage = len(matched_skills) / len(required_skills) * 100
+
+    return matched_skills, percentage
+
+
+for job in jobs:
+    matched, percentage = calculate_match(
+        my_skills, job["required_skills"]
+    )
+
+    job["matched_skills"] = matched
+    job["match_percentage"] = percentage
+
+
+jobs.sort(
+    key=lambda job: job["match_percentage"],
+    reverse=True
+)
 
 # Display the results
-print("Matched skills:", matched_skills)
-print("Number of matched skills:", matched_count)
-print("Total required skills:", required_count)
-print("Job match:", match_percentage, "%")
+print("=== JOBMATCH RESULTS ===")
+
+for job in jobs:
+    print("\nJob:", job["title"])
+    print("Company:", job["company"])
+    print("Matched skills:", job["matched_skills"])
+    print("Match:", round(job["match_percentage"], 1), "%")
+    
