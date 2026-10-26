@@ -1,0 +1,17 @@
+[
+    {
+        "title": "Python Developer",
+        "company": "Tech A",
+        "required_skills": ["Python", "Git", "SQL"]
+    },
+    {
+        "title": "Frontend Developer",
+        "company": "Tech B",
+        "required_skills": ["Python", "HTML", "CSS"]
+    },
+    {
+        "title": "Backend Developer",
+        "company": "Tech C",
+        "required_skills": ["Python", "Django", "SQL", "Git"]
+    }
+]
