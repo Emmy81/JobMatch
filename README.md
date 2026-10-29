@@ -35,7 +35,7 @@ The Streamlit dashboard provides a visual interface for:
 - Refreshing live job listings
 
 
-Example: ![JobMatch Dashboard](assets/dashboard.mp4)
+Example: ![JobMatch Dashboard](assets/dashboard.png)
 
 ## 🧰 Tech Stack
 
